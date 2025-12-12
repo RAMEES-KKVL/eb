@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Book a Repair</title>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+            rel="stylesheet">
+            <link href="https://yourcdn.com/nohemi/nohemi.css" rel="stylesheet">
+
+        <style>
+            * {
+            -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+
+            *::-webkit-scrollbar {
+                display: none;
+            }
+
+
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+            .badge_button {
+                /* background: radial-gradient(
+                    ellipse,
+                    #04e09e 0%,
+                    #26895e 50%,
+                    #188e5b 70%,
+                    #00FFB2 90%
+                ); */
+                display: inline-block; 
+                font-size: 1rem;
+                font-weight: 500; 
+                padding: 0.25rem 0.75rem; 
+                border-radius: 9999px; 
+                color: #00FFB2;  
+                box-shadow: 0 8px 22px #00FFB280;
+                background: radial-gradient(
+                    ellipse,
+                    #00FFB2 0%,
+                    #23a96d 40%,
+                    #1a774e 75%,
+                    #00FFB2 100%
+                );
+                border: 2px solid #00FFB2;
+            }
+            .badge_button span {
+                background: linear-gradient(to right, #000C07, #02834C, #00110A);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            }
+            
+            .heading_gradient_radial {
+                background: radial-gradient(circle at center, #ffffff 0%, #5f5f5f 100%);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                display: inline-block;
+            }
+            .heading_gradient_linear {
+                background: radial-gradient(circle at left, #706f6f 0%, #ffffff 28%);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            }
+
+            .heading_green_gradient {
+                background: linear-gradient(105.76deg, #00522F 6.73%, #00FF94 44.98%, #00522F 93.25%);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                display: inline-block;
+            }
+
+            .container_background {
+                background-color: #000312;
+            }
+
+        </style>
+    </head>
+    <body class="container_background h-auto text-white overflow-x-hidden">
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+            const faqItems = document.querySelectorAll(".faq-item");
+
+            // Make first item open by default
+            faqItems[0].querySelector(".faq-content").classList.remove("hidden");
+            faqItems[0].querySelector(".plus-icon").classList.add("hidden");
+            faqItems[0].querySelector(".minus-icon").classList.remove("hidden");
+
+            faqItems.forEach((item) => {
+                const btn = item.querySelector(".faq-btn");
+                btn.addEventListener("click", () => {
+                const content = item.querySelector(".faq-content");
+                const plusIcon = item.querySelector(".plus-icon");
+                const minusIcon = item.querySelector(".minus-icon");
+
+                const isOpen = !content.classList.contains("hidden");
+
+                // Close all FAQ items
+                document.querySelectorAll(".faq-content").forEach((c) => c.classList.add("hidden"));
+                document.querySelectorAll(".plus-icon").forEach((i) => i.classList.remove("hidden"));
+                document.querySelectorAll(".minus-icon").forEach((i) => i.classList.add("hidden"));
+
+                // If previously closed → open it
+                if (!isOpen) {
+                    content.classList.remove("hidden");
+                    plusIcon.classList.add("hidden");
+                    minusIcon.classList.remove("hidden");
+                }
+                });
+            });
+            });
+        </script>
+
+
+
+        <header class="fixed top-10 left-1/2 -translate-x-1/2 z-50 p-2 bg-white/10 backdrop-blur-[4px] w-[90%] max-w-6xl mx-auto rounded-full">
+            <div class="absolute inset-0 rounded-full p-[1px] pointer-events-none border-y border-y-white/20"></div>
+
+            <div class="relative max-w-7xl mx-auto flex items-center justify-between">
+                <div class="flex items-center">
+                    <img src="./logo_bin.png" alt="" class="w-18 ml-4">
+                </div>
+
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-300 hover:text-white transition">About Us</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition">Services</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition">Blogs</a>
+                </nav>
+
+                <button class="bg-white text-gray-900 px-6 py-2 rounded-full font-medium hover:bg-gray-100 transition">
+                    <div class="hidden md:flex">Contact us</div>
+                    <div class="md:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="3" y1="6" x2="21" y2="6" />
+                            <line x1="3" y1="12" x2="21" y2="12" />
+                            <line x1="3" y1="18" x2="21" y2="18" />
+                        </svg>
+
+                    </div>
+                </button>
+            </div>
+        </header>
+
+        <div class="relative">
+            <img src="./green circle.png" alt="" class="absolute top-[34rem] md:top-[40rem] lg:top-[30rem] xl:top-[25rem] left-1/2 -translate-x-1/2">
+
+            <section class="w-screen h-auto relative overflow-x-hidden py-10">
+                <div class="max-w-[1400px] relative py-20 h-screen min-h-[620px] max-h-[880px] flex items-center mx-auto px-6 lg:px-8 gap-6">
+            
+                    <section class="xl:hidden absolute top-[14rem] right-[-14rem] md:top-[20rem] flex items-center justify-center w-max h-max p-14">
+                        <div class="rounded-full p-10 md:p-16 lg:p-18 bg-gradient-to-br from-[#012F1C]/60 to-[#00522F]/30 shadow-[0_0_400px_60px_#012616]">
+                            <div class="rounded-full p-10 md:p-16 lg:p-18 border-t border-l border-white/10 bg-gradient-to-br from-[#025532]/70 to-[#00522F]/40">
+                                <div class="rounded-full p-10 md:p-16 lg:p-18 border-t border-l border-white/20 bg-gradient-to-br from-[#029F5C]/50 to-[#00522F]/40">
+                                    <div class="rounded-full p-10 md:p-16 lg:p-18 border-t border-l border-white/50 bg-gradient-to-br from-[#00ED89]/70 to-[#00522F]/70">
+                                        <div class="rounded-full p-10 md:p-16 lg:p-18 border-t border-l border-white/60 bg-gradient-to-br from-[#00FF94] to-[#00522F] relative">
+                                            <button class="px-6 py-3 md:px-12 md:py-5 bg-white rounded-full text-black">Book a consultation</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="hidden xl:block absolute right-[-46rem] top-[-1rem] flex items-center justify-center w-max h-max p-14">
+                        <div class="rounded-full py-18 px-22 bg-gradient-to-br from-[#012F1C]/60 to-[#00522F]/30 shadow-[0_0_400px_60px_#012616]">
+                            <div class="rounded-full py-18 px-22 border-t border-l border-white/10 bg-gradient-to-br from-[#025532]/70 to-[#00522F]/20">
+                                <div class="rounded-full py-18 px-22 border-t border-l border-white/30 bg-gradient-to-br from-[#029F5C]/50 to-[#00522F]/30">
+                                    <div class="rounded-full py-18 px-22 border-t border-l border-white/30 bg-gradient-to-br from-[#05C071]/50 to-[#00522F]/40">
+                                        <div class="rounded-full py-18 px-22 border-t border-l border-white/30 bg-gradient-to-br from-[#02CB76]/50 to-[#00522F]/70">
+                                            <div class="rounded-full py-18 px-22 border-t border-l border-white/50 bg-gradient-to-br from-[#01DC80] to-[#00522F]/70">
+                                                <div class="rounded-full py-18 px-22 border-t border-l border-white/50 bg-gradient-to-br from-[#00ED89] to-[#00522F]/70">
+                                                    <div class="rounded-full py-18 px-22 border-t border-l border-white/50 bg-gradient-to-br from-[#00FF94] to-[#00522F]/70 relative">
+                                                        <button class="px-12 py-5 bg-white rounded-full text-black">Book a consultation</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+            
+                    <div class="flex flex-col gap-5 translate-y-[-50%] md:translate-y-[-24%] xl:translate-y-0">
+                        <h1 class="heading_gradient_radial text-4xl md:text-6xl lg:text-7xl relative">
+                            BUILD SMARTER <br>
+                            LAUNCH FASTER <br>
+                            GROW BIGGER
+                        </h1>
+                        <p class="md:text-2xl leading-relaxed max-w-xs md:max-w-md leading-tight text-gray-400 relative">
+                        Explore the fun at a place where passion meets innovation. Come fall in love with
+                        technology at Error Bin.
+                        </p>
+                    </div>
+                </div>
+                <div class="max-w-[1400px] relative mx-auto px-6 lg:px-8 py-14 md:pt-36 md:pb-26 flex flex-col gap-5 overflow-x-hidden">
+                    <h3 class="text-7xl md:text-9xl heading_green_gradient relative">
+                        <span class="font-extralight">About</span> <br>
+                        <span class="">ErrorBin</span>
+                    </h3>
+                    <p class="text-2xl md:text-4xl lg:text-5xl md:max-w-xl lg:max-w-3xl lg:ml-auto heading_gradient_radial lg:indent-36 py-[2px] md:mr-20 relative">
+                        Discover the excitement where passion meets innovation.
+                        Fall in love with technology at Error Bin!
+                    </p>
+                </div>
+            </section>
+            
+            <div class="py-20 relative">
+                <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                    <!-- Header Section -->
+                    <div class="text-center flex flex-col items-center gap-6 mb-16">
+                        <div class="badge_button">
+                            <span>Services</span>
+                        </div>
+                        <h2 class="text-5xl md:text-6xl mb-2 heading_gradient_radial">
+                            No Errors, Just Excellence <br>
+                            Explore Our Services
+                        </h2>
+                        <p class="text-gray-400 text-lg">
+                            Explore the fun at a place where passion meets innovation.<br class="hidden sm:flex">
+                            Come fall in love with technology at Error Bin.
+                        </p>
+                    </div>
+            
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center overflow-hidden">
+                        <!-- Left: Image Card -->
+                        <div class="">
+                            <div class="rounded-[32px] overflow-hidden bg-gradient-to-b from-[#00FF94]/30 to-[#00522F]/40 p-[4px] max-w-full w-max mx-auto">
+                                <div class="rounded-[28px] overflow-hidden relative max-h-[37rem] aspect-5/6">
+                                    <div class="absolute inset-0 bg-[linear-gradient(20deg,#00FF94,#0E0E0E00_50%)]"></div>
+                                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600" alt="Woman with tablet and social media icons" class="w-full h-full z-[-100] object-cover">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Right: Services List -->
+                        <div class="space-y-12 lg:space-y-8 mx-auto lg:mx-0">
+                            <!-- Service 1 -->
+                            <div class="flex gap-6">
+                                <div class="w-[6px] min-h-full rounded-full bg-gradient-to-b from-[#00FF94] to-[#FFFFFF29] sm:mr-6"></div>
+                                <div class="flex flex-col lg:flex-row gap-12 lg:gap-6">
+                                    <img src="./icon.svg" alt="" class="w-12 md:w-14 mt-1 mb-auto">
+                                    <div class="max-w-xs mb-6 lg:mb-12">
+                                        <h3 class="mb-4 text-3xl md:text-4xl pt-0 pb-[4px] font-semibold mb-2 heading_gradient_linear">
+                                            Digital Marketing
+                                        </h3>
+                                        <p class="text-gray-400 ">
+                                            Explore the fun at a place where passion meets innovation. Come fall in love with technology at Error Bin.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <!-- Service 2 -->
+                            <div class="flex gap-6">
+                                <div class="w-[6px] min-h-full rounded-full bg-[#FFFFFF29] sm:mr-6"></div>
+                                <div class="flex flex-col lg:flex-row gap-12 lg:gap-6">
+                                    <img src="./icon.svg" alt="" class="w-12 md:w-14 mt-1 mb-auto">
+                                    <div class="max-w-xs mb-6 lg:mb-12">
+                                        <h3 class="mb-4 text-3xl md:text-4xl pt-0 pb-[4px] font-semibold mb-2 heading_gradient_linear">
+                                            Web Development
+                                        </h3>
+                                        <p class="text-gray-400">
+                                            Explore the fun at a place where passion meets innovation. Come fall in love with technology at Error Bin.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <!-- Service 3 -->
+                            <div class="flex gap-6">
+                                <div class="w-[6px] min-h-full rounded-full bg-[#FFFFFF29] sm:mr-6"></div>
+                                <div class="flex flex-col lg:flex-row gap-12 lg:gap-6">
+                                    <img src="./icon.svg" alt="" class="w-12 md:w-14 mt-1 mb-auto">
+                                    <div class="max-w-xs mb-4">
+                                        <h3 class="mb-4 text-3xl md:text-4xl pt-0 pb-[4px] font-semibold mb-2 heading_gradient_linear">
+                                            UI/UX Design
+                                        </h3>
+                                        <p class="text-gray-400">
+                                            Explore the fun at a place where passion meets innovation. Come fall in love with technology at Error Bin.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="py-20">
+            <div class="max-w-[1400px] mx-auto px-6 lg:px-8">
+                <!-- Header Section -->
+                <div class="text-center flex flex-col items-center gap-6 mb-16">
+                    <div class="badge_button">
+                        <span>Works</span>
+                    </div>
+                    <h2 class="text-5xl md:text-6xl mb-2 heading_gradient_radial">
+                        Error Bin in Action
+                    </h2>
+                    <p class="text-gray-400 text-lg">
+                        Explore the fun at a place where passion meets innovation.<br class="hidden sm:flex">
+                        Come fall in love with technology at Error Bin.
+                    </p>
+                </div>
+
+                
+                <div class="relative rounded-[40px] overflow-hidden h-[600px]">
+                    <img src="./status67.jpg" alt="Blue sports car in motion" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-[linear-gradient(0deg,#00BF6F,#0E0E0E00_30%)]"></div>
+                    <div class="absolute inset-0 bg-black/70"></div>
+        
+                    <!-- Content Container -->
+                    <div class="relative h-full flex flex-col justify-between p-8 md:p-12">
+                        
+                        <!-- Top Content -->
+                        <div class="flex flex-col md:flex-row justify-between items-start gap-6">
+                            <!-- Right: Description and Tags -->
+                            <div class="max-w-xl lg:ml-auto flex flex-col gap-4 md:gap-12">
+                                <p class="text-white text-lg md:text-xl leading-relaxed mb-6">
+                                    From ADAS calibration to paint protection, our certified specialists provide precision repairs and maintenance for luxury vehicles. Trust us for top-tier care with advanced technology and expert service.
+                                </p>
+                                
+                                <!-- Tags -->
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-gray-50 border border-gray-300 text-gray-900 rounded-full text-sm font-medium">
+                                        Website
+                                    </span>
+                                    <span class="px-3 py-1 bg-gray-50 border border-gray-300 text-gray-900 rounded-full text-sm font-medium">
+                                        UI/UX Design
+                                    </span>
+                                    <span class="px-3 py-1 bg-gray-50 border border-gray-300 text-gray-900 rounded-full text-sm font-medium">
+                                        Website development
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Bottom Content -->
+                        <div class="flex flex-col md:flex-row justify-between md:items-end gap-4">
+                            <!-- Title -->
+                            <h1 class="text-5xl md:text-6xl lg:text-7xl font-semibold">
+                                Status 67
+                            </h1>
+                            
+                            <!-- CTA Button -->
+                            <a href="#" class="inline-flex items-center gap-2 text-white text-lg font-medium hover:text-green-400 transition-colors group">
+                                <span class="border-b-2 border-white group-hover:border-green-400 pb-1">Read full Story</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="py-20">
+            <!-- Header Section -->
+            <div class="max-w-[1400px] mx-auto px-6 lg:px-8">
+                <div class="text-center flex flex-col items-center gap-6 mb-16">
+                    <div class="badge_button">
+                        <span>Testimonials</span>
+                    </div>
+                    <h2 class="text-5xl md:text-6xl mb-2 heading_gradient_radial">
+                        Results that speaks volume<br>
+                        Read success stories
+                    </h2>
+                    <p class="text-gray-400 text-lg">
+                        Find out how happy clients are raving about us
+                    </p>
+                </div>
+                <!-- Testimonials Grid -->
+                <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Large Testimonial Card (Left) -->
+                    <div class="relative rounded-3xl p-[1px] bg-[linear-gradient(to_right,#0d5d3a,#2d2d2d)]">
+                        <div class="bg-[#212121] rounded-3xl h-full w-full p-8 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-5xl font-bold mb-2">8X</h3>
+                                <p class="text-gray-200 text-lg mb-8">Increase in conversion rate</p>
+                                
+                                <svg class="w-8 h-8 text-green-400 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                                </svg>
+                                
+                                <p class="text-white text-xl leading-relaxed mb-8">
+                                    "We needed a modern, high-converting website, and the Bravo team delivering beyond expectation. Their design and SEO Expense helped us increase conversion rate by 8>>% in just two weeks Highly recommended
+                                </p>
+                            </div>
+                            
+                            <div class="flex items-center gap-3">
+                                <img src="https://i.pravatar.cc/150?img=5" 
+                                    alt="Amélie Laurent" 
+                                    class="w-12 h-12 rounded-full">
+                                <div>
+                                    <p class="font-semibold">Amélie Laurent</p>
+                                    <p class="text-gray-300 text-sm">Product Manager, Willcrafted</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-rows-[auto_1fr]">
+                        <!-- Top Card (Dark) -->
+                        <div class="relative rounded-3xl p-[1px] bg-[linear-gradient(to_right,#0d5d3a,#2d2d2d)]">
+                            <div class="bg-[#212121] rounded-3xl p-8 h-full w-full md:col-span-2">
+                                <h3 class="text-4xl font-bold mb-6">8X <span class="text-gray-200 text-lg font-light mb-6">Increase in conversion rate</span></h3>
+                                
+                                <svg class="w-6 h-6 text-green-400 mb-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                                </svg>
+                                
+                                <p class="text-white text-lg leading-tight mb-6">
+                                    "We needed a modern, high-converting website, and the Bravo team delivering beyond expectation. Their design and SEO Expense helped us increase
+                                </p>
+                                
+                                <div class="flex items-center gap-3">
+                                    <img src="https://i.pravatar.cc/150?img=5" 
+                                        alt="Amélie Laurent" 
+                                        class="w-10 h-10 rounded-full">
+                                    <div>
+                                        <p class="font-semibold text-sm">Amélie Laurent</p>
+                                        <p class="text-gray-300 text-xs">Product Manager, Willcrafted</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                            <!-- Green Card 1 -->
+                            <div class="relative rounded-3xl p-[1px] bg-[linear-gradient(to_right,#0d5d3a,#2d2d2d)]">
+                                <div class="bg-[linear-gradient(45deg,#00FF94,#0E0E0E_65%)] h-full w-full rounded-3xl p-6 flex flex-col gap-4">
+                                    <h3 class="text-3xl font-bold mb-1">8X <span class="text-gray-200 font-light text-lg lg:text-[1rem] mb-4">Increase in conversion rate</span></h3>
+                                    
+                                    <svg class="w-5 h-5 text-green-400 mb-3" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                                    </svg>
+                                    
+                                    <p class="text-lg leading-tight mb-2">
+                                        "We needed a modern, high-converting website, and the Bravo team delivering beyond expectation.
+                                    </p>
+                                    
+                                    <div class="flex items-center mt-auto gap-2">
+                                        <img src="https://i.pravatar.cc/150?img=5" 
+                                                alt="Amélie Laurent" 
+                                                class="w-8 h-8 rounded-full">
+                                        <div>
+                                            <p class="font-semibold text-xs">Amélie Laurent</p>
+                                            <p class="text-gray-300 text-[10px]">Product Manager, Willcrafted</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Green Card 2 -->
+                            <div class="relative rounded-3xl p-[1px] bg-[linear-gradient(to_right,#0d5d3a,#2d2d2d)]">
+                                <div class="bg-[#212121] rounded-3xl p-6 h-full w-full flex flex-col gap-4">
+                                    <h3 class="text-3xl font-bold mb-1">8X <span class="text-gray-200 font-light text-lg lg:text-[1rem] mb-4">Increase in conversion rate</span></h3>
+                                    
+                                    <svg class="w-5 h-5 text-green-400 mb-3" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                                    </svg>
+                                    
+                                    <p class="text-white text-lg leading-tight mb-2">
+                                        "We needed a modern, high-converting website, and the Bravo team delivering beyond expectation.
+                                    </p>
+                                    
+                                    <div class="flex items-center gap-2 mt-auto">
+                                        <img src="https://i.pravatar.cc/150?img=5" 
+                                                alt="Amélie Laurent" 
+                                                class="w-8 h-8 rounded-full">
+                                        <div>
+                                            <p class="font-semibold text-xs">Amélie Laurent</p>
+                                            <p class="text-gray-300 text-[10px]">Product Manager, Willcrafted</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="py-20">
+            <div class="max-w-[1400px] mx-auto px-6 lg:px-8">
+                <div class="text-center flex flex-col items-center gap-6 mb-16">
+                    <div class="badge_button">
+                        <span>Blogs</span>
+                    </div>
+                    <h2 class="text-5xl md:text-6xl mb-2 heading_gradient_radial">
+                        Error Bin Blog <br>
+                        Ideas That Build & Market
+                    </h2>
+                </div>
+                <!-- Blog Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Card 1 -->
+                    <div class="bg-[#212121] p-[8px] rounded-[32px] overflow-hidden transition-all duration-300">
+                        <!-- Card Image Section -->
+                        <div class="h-48 overflow-hidden rounded-[24px] flex bg-[linear-gradient(45deg,#00FF94,#0E0E0E,#0E0E0E)]">
+                            <div class="text-white w-[60%] flex flex-col justify-between p-4">
+                                <p class="text-2xl font-medium mb-1">Digital marketing tips</p>
+                                <div class="w-max flex items-center justify-center px-3 py-1 border border-[#FAFAFA] bg-[#E9EAEB] text-[#414651] rounded-full text-xs">
+                                    Marketing
+                                </div>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=500" alt="Professional businessman" class="w-[40%] h-full object-cover">
+                        </div>
+                        
+                        <!-- Card Content -->
+                        <div class="p-2 mt-2">
+                            <p class="text-gray-300 text-xs mb-3">Mar 23, 2024</p>
+                            <h3 class="text-xl font-semibold mb-3">5 Digital marketing technic you should know</h3>
+                            <p class="text-gray-300 text-sm mb-10">
+                                "We needed a modern, high-converting website, and the Bravo team delivering beyond expectation.
+                            </p>
+                            <a href="#" class="text-white text-sm font-medium underline hover:text-green-400 transition-colors">
+                                Read full blog
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-[#212121] p-[8px] rounded-[32px] overflow-hidden transition-all duration-300">
+                        <!-- Card Image Section -->
+                        <div class="h-48 overflow-hidden rounded-[24px] flex bg-[linear-gradient(45deg,#00FF94,#0E0E0E,#0E0E0E)]">
+                            <div class="text-white w-[60%] flex flex-col justify-between p-4">
+                                <p class="text-2xl font-medium mb-1">Digital marketing tips</p>
+                                <div class="w-max flex items-center justify-center px-3 py-1 border border-[#FAFAFA] bg-[#E9EAEB] text-[#414651] rounded-full text-xs">
+                                    Marketing
+                                </div>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=500" alt="Professional businessman" class="w-[40%] h-full object-cover">
+                        </div>
+                        
+                        <!-- Card Content -->
+                        <div class="p-2 mt-2">
+                            <p class="text-gray-300 text-xs mb-3">Mar 23, 2024</p>
+                            <h3 class="text-xl font-semibold mb-3">5 Digital marketing technic you should know</h3>
+                            <p class="text-gray-300 text-sm mb-10">
+                                "We needed a modern, high-converting website, and the Bravo team delivering beyond expectation.
+                            </p>
+                            <a href="#" class="text-white text-sm font-medium underline hover:text-green-400 transition-colors">
+                                Read full blog
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-[#212121] p-[8px] rounded-[32px] overflow-hidden transition-all duration-300">
+                        <!-- Card Image Section -->
+                        <div class="h-48 overflow-hidden rounded-[24px] flex bg-[linear-gradient(45deg,#00FF94,#0E0E0E,#0E0E0E)]">
+                            <div class="text-white w-[60%] flex flex-col justify-between p-4">
+                                <p class="text-2xl font-medium mb-1">Digital marketing tips</p>
+                                <div class="w-max flex items-center justify-center px-3 py-1 border border-[#FAFAFA] bg-[#E9EAEB] text-[#414651] rounded-full text-xs">
+                                    Marketing
+                                </div>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=500" alt="Professional businessman" class="w-[40%] h-full object-cover">
+                        </div>
+                        
+                        <!-- Card Content -->
+                        <div class="p-2 mt-2">
+                            <p class="text-gray-300 text-xs mb-3">Mar 23, 2024</p>
+                            <h3 class="text-xl font-semibold mb-3">5 Digital marketing technic you should know</h3>
+                            <p class="text-gray-300 text-sm mb-10">
+                                "We needed a modern, high-converting website, and the Bravo team delivering beyond expectation.
+                            </p>
+                            <a href="#" class="text-white text-sm font-medium underline hover:text-green-400 transition-colors">
+                                Read full blog
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="py-20">
+            <div class="max-w-[1400px] mx-auto px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
+
+                    <!-- LEFT SECTION -->
+                    <div class="flex flex-col items-start gap-6 md:pt-6">
+                        <!-- glowing tag -->
+                        <div class="badge_button">
+                            <span>FAQs</span>
+                        </div>
+
+                        <!-- big heading -->
+                        <h2 class="text-6xl md:text-7xl xl:text-9xl font-bold tracking-tight heading_gradient_radial">
+                            FAQs
+                        </h2>
+                    </div>
+
+                    <!-- RIGHT SECTION (ACCORDION LIST) -->
+                    <div class="col-span-2 space-y-4" id="faqContainer">
+
+                        <!-- FAQ ITEM -->
+                        <div class="relative rounded-2xl p-[1px] bg-[linear-gradient(to_right,#0d5d3a,#2d2d2d)]">
+                            <div class="faq-item bg-[#212121] rounded-2xl p-5">
+                                <button class="faq-btn w-full flex justify-between items-start text-left">
+                                    <span class="text-[17px] font-medium text-gray-200 leading-snug">
+                                        What's the difference between web design and web development?
+                                    </span>
+
+                                    <span class="flex-shrink-0">
+                                        <svg class="h-6 w-6 text-gray-300 plus-icon" fill="none" stroke="currentColor"
+                                            stroke-width="2" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                        </svg>
+
+                                        <svg class="h-6 w-6 text-gray-300 minus-icon hidden" fill="none" stroke="currentColor"
+                                            stroke-width="2" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 12h12" />
+                                        </svg>
+                                    </span>
+                                </button>
+
+                                <div class="faq-content hidden mt-3 text-gray-400 leading-relaxed">
+                                    Web design focuses on the look, layout, and user experience,
+                                    while web development is about coding and making the site functional.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ ITEM -->
+                        <div class="relative rounded-2xl p-[1px] bg-[linear-gradient(to_right,#0d5d3a,#2d2d2d)]">
+                            <div class="faq-item bg-[#212121] rounded-2xl p-5">
+                                <button class="faq-btn w-full flex justify-between items-start text-left">
+                                    <span class="text-[17px] font-medium text-gray-200 leading-snug">
+                                        What's the difference between web design and web development?
+                                    </span>
+            
+                                    <span class="flex-shrink-0">
+                                        <svg class="h-6 w-6 text-gray-300 plus-icon" fill="none" stroke="currentColor"
+                                            stroke-width="2" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                        </svg>
+            
+                                        <svg class="h-6 w-6 text-gray-300 minus-icon hidden" fill="none" stroke="currentColor"
+                                            stroke-width="2" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 12h12" />
+                                        </svg>
+                                    </span>
+                                </button>
+            
+                                <div class="faq-content hidden mt-3 text-gray-400 leading-relaxed">
+                                    Delivery usually takes 2–5 business days.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- MORE FAQ BLOCKS SAME STYLE -->
+                        <div class="relative rounded-2xl p-[1px] bg-[linear-gradient(to_right,#0d5d3a,#2d2d2d)]">
+                            <div class="faq-item bg-[#212121] rounded-2xl p-5">
+                                <button class="faq-btn w-full flex justify-between items-start text-left">
+                                    <span class="text-[17px] font-medium text-gray-200 leading-snug">
+                                        What's the difference between web design?
+                                    </span>
+            
+                                    <span class="flex-shrink-0">
+                                        <svg class="h-6 w-6 text-gray-300 plus-icon" fill="none" stroke="currentColor"
+                                            stroke-width="2" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                        </svg>
+            
+                                        <svg class="h-6 w-6 text-gray-300 minus-icon hidden" fill="none" stroke="currentColor"
+                                            stroke-width="2" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 12h12" />
+                                        </svg>
+                                    </span>
+                                </button>
+            
+                                <div class="faq-content hidden mt-3 text-gray-400 leading-relaxed">
+                                    Web design is concerned with the visual and UX aspects.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
